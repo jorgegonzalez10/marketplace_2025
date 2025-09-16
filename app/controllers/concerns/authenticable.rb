@@ -2,8 +2,10 @@ module Authenticable
 
   def current_user
     return @current_user if @current_user
-
+# viene ["bearer", "xxxxxxx"]
     header = request.headers["Authorization"]
+              .split(" ")
+              .last
     return nil if header.nil?
 
     decoded = JsonWebTokenService.decode(header)

@@ -15,7 +15,7 @@ class Api::V1::ProductsController < ApplicationController
     # @product = Product.new(product_params)
     # @product.user = @user
     @product = current_user.products.build(product_params)
-    if @product.save
+    if @product.save!
       render json: serialized(@product, ProductSerializer), status: 201
     else
       render json: @product.errors.full_messages
