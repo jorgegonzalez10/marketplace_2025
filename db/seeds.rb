@@ -70,3 +70,15 @@ orderItem = OrderItem.create!([
   {order_id: order.id, product_id: cart_items[1].product_id, price_at_purchase: cart_items[1].price, quantity: cart_items[1].quantity },
   {order_id: order.id, product_id: cart_items[2].product_id, price_at_purchase: cart_items[2].price, quantity: cart_items[2].quantity }
 ])
+
+puts 'creando payments'
+
+payment = Payment.create!(
+  order_id: Order.first.id, amount: Order.first.total, method: "debit card", status: 0
+  )
+
+  puts 'creando shipments'
+
+shipment = Shipment.create!(
+  order_id: Order.first.id, provider: "ups", tracking_number: "401239494", status: 1, cost: 40
+)
