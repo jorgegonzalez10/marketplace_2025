@@ -27,7 +27,7 @@ users = User.create!([
 puts 'creando categorias'
 
 categories = Category.create!([
-  {name: 'Tech'},
+  {name: 'tech'},
   {name: 'home'},
   {name: 'clothes'}
 ])

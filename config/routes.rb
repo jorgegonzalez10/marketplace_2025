@@ -13,6 +13,7 @@ Rails.application.routes.draw do
       resources :users
       resources :tokens, only: :create
       resources :products
+      resources :categories, only: :index
     end
   end
 end
